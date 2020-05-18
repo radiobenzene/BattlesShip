@@ -2,6 +2,7 @@ Private Sub Worksheet_SelectionChange(ByVal Target As Range)
 
 '0 is Horizontal direction
 '1 is Vertical direction
+    
 CountSteps
 PlaceFlag
 
@@ -19,18 +20,19 @@ DeleteFourShip 0
 If (Cells(10, 19).Value = 0 And Cells(11, 19).Value = 0 And Cells(12, 19).Value = 0 And Cells(13, 19).Value = 0) Then
     ClearCells
     ColorCells
+        'EndGame form 
     EndGame.Show
 End If
 End Sub
 
 Function CountSteps()
-Dim counter As Integer 'step counter
-counter = 0
-If ((ActiveCell.Interior.ColorIndex = 5) And (ActiveCell.Value <> 1)) Then
-'PlaceFlag
-counter = counter + 1
-Cells(15, 19).Value = Cells(15, 19).Value + 1
-End If
+    Dim counter As Integer 'step counter
+    counter = 0
+    If ((ActiveCell.Interior.ColorIndex = 5) And (ActiveCell.Value <> 1)) Then
+    'PlaceFlag
+    counter = counter + 1
+    Cells(15, 19).Value = Cells(15, 19).Value + 1
+    End If
 End Function
 
 Public Function PlaceFlag()
@@ -49,8 +51,8 @@ End Function
 Function ReduceCounter(row As Integer, col As Integer)
    Cells(row, col).Value = Cells(row, col).Value - 1
    If (Cells(row, col).Value < 0) Then
-    Cells(row, col).Value = Cells(row, col).Value + 1
-    End If
+   Cells(row, col).Value = Cells(row, col).Value + 1
+   End If
 End Function
 
 Function DeleteSingleShip()
@@ -147,7 +149,6 @@ Select Case dir
         End If
         
 End Select
-
          If (Cells(11, 19).Value < 0) Then
          Cells(11, 19).Value = Cells(11, 19).Value + 1
         End If
