@@ -1,63 +1,64 @@
+'Original author - Uditangshu Aurangabadkar
+
 Sub Start_Game()
-InitGame
-ColorCells 'Coloring all cells
-ClearCells
+    InitGame
+    ColorCells 'Coloring all cells
+    ClearCells 'Clearing all cells
 
-'Placing only single ships
-direction = Int((1 - 0 + 1 * Rnd) + 0) 'Random number between 0 and 1
+    'Placing only single ships
+    direction = Int((1 - 0 + 1 * Rnd) + 0) 'Random number between 0 and 1
 
-PlaceFourShip direction
+    PlaceFourShip direction 'Placing four block ship with the direction as a random integer 
 
-PlaceTripleShip 1
-PlaceTripleShip 0
+    'The other ships can be placed using numbers or even the random direction
+    PlaceTripleShip 1 
+    PlaceTripleShip 0
 
-PlaceDoubleShip 0
-PlaceDoubleShip 1
-PlaceDoubleShip 1
+    PlaceDoubleShip 0
+    PlaceDoubleShip 1
+    PlaceDoubleShip 1
 
-PlaceSingleShip 0
-PlaceSingleShip 0
-PlaceSingleShip 0
-PlaceSingleShip 0
-
-
-
+    PlaceSingleShip 0
+    PlaceSingleShip 0
+    PlaceSingleShip 0
+    PlaceSingleShip 0
 End Sub
 
 Function ColorCells()
-Dim selected_color As Integer
-selected_color = 5
-Range("E5:N14").Interior.ColorIndex = selected_color
+    Dim selected_color As Integer
+    selected_color = 5
+    'Coloring cells with the selected_color
+    Range("E5:N14").Interior.ColorIndex = selected_color
 End Function
 
 Function InitGame()
-InitStepCounter
-InitShipCount
+    InitStepCounter
+    InitShipCount
 End Function
 
+'Timer function is disabled
 Function InitTimer()
-Range("R6").Value = "0:05:00"
+    Range("R6").Value = "0:05:00"
 End Function
 
 Function InitShipCount()
-Cells(10, 19).Value = 1
-Cells(11, 19).Value = 2
-Cells(12, 19).Value = 3
-Cells(13, 19).Value = 4
+    Cells(10, 19).Value = 1
+    Cells(11, 19).Value = 2
+    Cells(12, 19).Value = 3
+    Cells(13, 19).Value = 4
 End Function
 
 Function InitStepCounter()
-Cells(15, 19).Value = 0
+    Cells(15, 19).Value = 0
 End Function
 
 Function ClearCells()
-Range("E5:N14").Value = " "
+    Range("E5:N14").Value = " "
 End Function
 
 Sub CreateRandomParameters(upper_lim As Integer, lower_lim As Integer)
     row = Int((upper_lim - lower_lim + 1) * Rnd + lower_lim) 'Random number between 2 and 11
-    col = Int((upper_lim - lower_lim + 1) * Rnd + lower_lim) 'Random number between 2 and 11
-    
+    col = Int((upper_lim - lower_lim + 1) * Rnd + lower_lim) 'Random number between 2 and 11   
 End Sub
 
 
