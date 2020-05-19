@@ -6,6 +6,7 @@ Private Sub Worksheet_SelectionChange(ByVal Target As Range)
 CountSteps
 PlaceFlag
 
+    'Delete ships on start
 DeleteSingleShip
 
 DeleteDoubleShip 0
